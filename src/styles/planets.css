@@ -1,0 +1,372 @@
+img.disabled {
+    display: none;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    width: 80%;
+    max-width: 1200px;
+    padding-top: 100px;
+}
+
+.photos {
+    position: relative;
+    width: 60%;
+    height: 540px;
+}
+
+.photos img {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+}
+
+.second-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.second-img.geology {
+    top:45%;
+    left: 50%;
+    transform: translateX(-50%) scale(.45);
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    height: 540px;
+}
+
+aside h1{
+    font-size: 80px;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 24px;
+}
+
+aside p {
+    min-height: 130px;
+    font-family: 'spartan', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 25px;
+}
+
+.link {
+    font-size: 14px;
+    font-family: 'spartan', sans-serif;
+    color: #838391;
+}
+
+.link span {
+    font-weight: 400;
+}
+
+.link a {
+    font-weight: bold;
+    color: #838391;
+}
+
+.buttons {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.buttons button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    background-color: #070724;
+    color: #fff;
+    font-family: 'spartan', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 2.57px;
+    transition: background-color .2s;
+}
+
+ button:hover {
+    background-color: #313148;
+}
+ button.mercury.active, button.mercury.active::after {
+    background-color: #419EBB;
+    border-color: #419EBB;
+}
+ button.venus.active, button.venus.active::after {
+    background-color: #EDA249;
+    border-color: #EDA249;
+}
+ button.earth.active, button.earth.active::after {
+    background-color: #6D2ED5;
+    border-color: #6D2ED5;
+}
+ button.mars.active, button.mars.active::after {
+    background-color: #D14C32;
+    border-color: #D14C32;
+}
+ button.jupiter.active, button.jupiter.active::after {
+    background-color: #D83A34;
+    border-color: #D83A34;
+}
+ button.saturn.active, button.saturn.active::after {
+    background-color: #CD5120;
+    border-color: #CD5120;
+}
+ button.uranus.active, button.uranus.active::after {
+    background-color: #1EC1A2;
+    border-color: #1EC1A2;
+}
+button.neptune.active, button.neptune.active::after {
+    background-color: #2D68F0;
+    border-color: #2D68F0;
+}
+.buttons button span  {
+    content: '';
+    display: block;
+    width: 21px;
+    margin-right: 28px;
+    margin-left: 28px;
+    opacity: .5;
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.stats div {
+    display: flex;
+    flex-direction: column;
+    height: 128px;
+    width: 255px;
+    padding: 20px 0 0 23px;
+    border: 1px solid #838391;
+    text-transform: uppercase;
+    font-size: 40px;
+    background-color: #070724;
+}
+
+.stats div p {
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-family: 'spartan', sans-serif;
+    font-weight: bold;
+    opacity: 0.75;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 1300px) {
+    .stats div {
+        width: 23%;
+    }
+    .photos img {
+        max-width: 95%;
+    }
+    aside p {
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        padding-top: 0px;
+        width: 90%;
+    }
+    
+    .photos {
+        width: 100%;
+        height: 470px;
+    }
+    
+    .photos img {
+        transform: translate(-50%, -50%) scale(.7);
+        max-height: 100%;
+    }
+    
+    .second-img.geology {
+        top:35%;
+        transform: translateX(-50%) scale(.4);
+    }
+    
+    aside {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 140px auto;
+        grid-template-areas: 
+        "h1 buttons"
+        "p buttons"
+        "link buttons"
+        ;
+        width: 100%;
+        height: 250px;
+        margin-bottom: 26px;
+    }
+    
+    aside h1{
+        font-size: 48px;
+        text-transform: uppercase;
+        font-weight: normal;
+        margin-bottom: 24px;
+        grid-area: h1;
+    }
+    
+    aside p {
+        grid-area: p;
+        max-width: 350px;
+        min-height: auto;
+        line-height: 22px;
+        font-family: 'spartan', sans-serif;
+        font-size: 11px;
+    }
+    .link {
+        grid-area: link;
+        font-size: 12px;
+    }
+
+    .buttons {
+        grid-area: buttons;
+        align-self: center;
+        height: min-content;
+        margin-left: 60px;
+    }
+    .buttons button {
+        width: 100%;
+        height: 40px;
+        font-size: 9px;
+        letter-spacing: 1.93px;
+    }
+    .buttons button span {
+        width: 14px;
+        margin-right: 16px;
+        margin-left: 20px;
+    }
+    .stats {
+        margin-bottom: 20px;
+    }
+    .stats div {
+        height: 88px;
+        width: 23.7%;
+        font-size: 24px;
+        padding: 16px 0 0 16px;
+    }
+    
+    .stats div p {
+        font-size: 8px;
+        margin-bottom: 6px;
+        line-height: 16px;
+        letter-spacing: 0.73px;
+    }
+}
+@media (max-width: 680px){
+    main.activeHamburger {
+        position: absolute;
+        top: 100vh;
+    }
+
+    main {
+        width: 100%;
+    }
+    .photos {
+        height: 320px;
+    }
+    .photos img {
+        top: 60%;
+        max-height: 100%;
+        transform: translate(-50%, -50%) scale(.45);
+    }
+    
+    .second-img.geology {
+        top:25%;
+        transform: translateX(-50%) scale(.3);
+    }
+    aside {
+        display: flex;     
+        flex-direction: column;
+        align-items: center;
+        margin: 0 24px 30px;
+    }
+
+    aside h1 {
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    aside p {
+        text-align: center;
+    }
+
+    .buttons {
+        position: absolute; 
+        top:68px;
+        left: 0;
+        right:0;
+        display: flex;
+        grid-gap: 0;
+        height: 50px;
+        margin: 0;
+    }
+    .buttons.activeHamburger {
+        top:0;
+    }
+    .buttons button {
+        position: relative;
+        height: 100%;
+        justify-content: center;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255,255,255,.6);
+        text-align: center;
+    }
+    .buttons button.active {
+        background-color: #070724;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+    .buttons button span {
+        display: none;
+    }
+    .buttons button.active::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 4px;
+        bottom: 0;
+    }
+    .stats {
+        margin: 0 24px;
+        flex-direction: column;
+    }
+    .stats div {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 48px;
+        margin-bottom: 8px;
+        padding: 0 24px;
+        align-items: center;
+        font-size: 20px;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .stats div p {
+        margin: 0;
+        transform: translateY(2px);
+        color: rgba(255, 255, 255, 0.4);
+        opacity: 1;
+    }
+
+}

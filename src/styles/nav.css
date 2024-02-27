@@ -1,0 +1,242 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    background-color: #070724;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+    position: relative;
+    top: -2px;
+    font-size: 28px;
+    margin-left: 32px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: -1.05px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+}
+
+ul.planets {
+    display: flex;
+    height: 100%;
+    margin-right: 30px;
+    list-style: none;
+}
+
+.planets li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 86px;
+    margin: 0 16px;
+}
+
+.planets li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    opacity: .75;
+    color: #fff;
+    font-size: 11px;
+    font-family: 'Spartan', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.planets li.active a {
+    font-size: 13px;
+    opacity: 1;
+}
+
+.planets li::after{
+    content: '';
+    width: 0;
+    height: 5px;
+    position:absolute;
+    top:0;
+    left: 50%;
+    background-color: white;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s, top 0.3s, background-color 1s;
+}
+
+.planets li:hover::after {
+    width: 100%;
+    left: 0%;
+}
+
+.planets li.active::after {
+    top:-15%;
+}
+
+.planets li.mercury::after {
+    background-color: #419EBB;
+}
+.planets li.venus::after {
+    background-color: #EDA249;
+}
+.planets li.earth::after {
+    background-color: #6D2ED5;
+}
+.planets li.mars::after {
+    background-color: #D14C32;
+}
+.planets li.jupiter::after {
+    background-color: #D83A34;
+}
+.planets li.saturn::after {
+    background-color: #CD5120;
+}
+.planets li.uranus::after {
+    background-color: #1EC1A2;
+}
+.planets li.neptune::after {
+    background-color: #2D68F0;
+}
+
+@media (max-width: 1300px) {
+    ul.planets {
+        margin-right: 0px;
+    }
+    
+    .planets li {
+        margin: 0 12px;
+        width: 76px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav {
+        flex-direction: column;
+        height: 160px;
+    }
+    .logo {
+        top: 0;
+        margin-top: 36px;
+        margin-bottom: 36px;
+        margin-left: 0;
+    }
+
+    ul.planets {
+        margin-bottom: 24px;
+        width: 95%;
+        justify-content: center;
+    }
+    .planets li {
+        width: 72px;
+    }
+    .planets li:hover::after {
+        width: 0;
+        left: 0%;
+    }
+    .planets li.active a {
+        font-size: 11px;
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 680px){
+    .hamburger {
+        display: block;
+        background-color: transparent;
+        border: none;
+    }
+
+    .hamburger.activeHamburger {
+        opacity: .5;
+    }
+    ul.planets {
+        display: none;
+        flex-direction: column;
+        height: calc(100vh - 68px);
+        width: 100%;
+        margin: 0;
+        padding: 20px 0 34px;
+        background-color: #070724;
+    }
+
+    ul.planets.activeHamburger {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        z-index: 1;
+    }
+
+    .planets li {
+        justify-content: start;
+        width: 90%;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .planets li::after {
+        top: 50%;
+        left: 0;
+        transform: translate(0,-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    .planets li::before {
+        content: '';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        height: 8px;
+        width: 8px;
+        background-image: url('../../public/assets/icon-chevron.svg');
+        background-repeat: no-repeat;
+    }
+    .planets li.active::after {
+        top:50%;
+        left: 0;
+    }
+    .planets li:nth-last-child(1) {
+        width: 90%;
+        margin: 0;
+        padding: 0;
+        border-bottom: none;
+    }
+
+    .planets li a {
+        position: absolute;
+        left: 44px;
+        height: auto;
+        opacity: 1;
+        font-size: 15px;
+        transform: translateY(3px);
+    }
+    .planets li.active a {
+        font-size: 15px;
+        transform: scale(1) translateY(3px);
+    }
+    .nav {
+        flex-direction:row;
+        height: 68px;
+        padding: 16px 24px;
+    }
+
+    .logo{
+        margin: 0;
+        padding: 0;
+        transform: translateY(-2px);
+    }
+}
+
+
